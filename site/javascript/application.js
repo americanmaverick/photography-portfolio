@@ -9,17 +9,21 @@ function main() {
   });
 }
 
+main.closeup = undefined;
+
 function handleCloseup(e) {
-  var photo, preloader, originalSource;
+  var photo, preloader;
+  
   photo = e.target.dataset.photo;
+  main.closeup = photo;
   
   if (photo) {
     closeupImage.src = './photos/med/'+photo;
     preloader = new Image();
     preloader.onload = function() {
-      closeupImage.src = this.src;
+      if (main.closeup === photo) closeupImage.src = this.src;
     };
-    preloader.src = './photos/orig/'+photo;
+    preloader.src = './photos/lg/'+photo;
     closeupLink.href = './photos/orig/'+photo;
     gallery.classList.toggle('hidden', true);
     closeup.classList.toggle('hidden', false);

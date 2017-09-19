@@ -1,5 +1,15 @@
 body {
   text-align: center;
+  background: linear-gradient(#EEEDDA 0%, #FFFFFF 25%, #FFFFFF 75%, #EEEDDA 90%);
+}
+
+a:link, a:visited, a:active {
+  color: #606060;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 h1.page-title {
@@ -13,4 +23,8 @@ h1.page-title {
 .spacing-double {
   margin-top: 2em;
   margin-bottom: 2em;
+}
+
+img {
+  box-shadow: 0px 5px 6px -4px #606060;
 }
