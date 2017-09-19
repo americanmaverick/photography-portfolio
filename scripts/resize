@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [ "$1" = "--all" ]; then
+  echo "Resizing all files in ./photos/orig..."
+  for filename in $(ls -l1 ./photos/orig/); do
+    resize $filename
+  done
+else
+  echo "Resizing $1..."
+  convert ./photos/orig/$1 -resize 1000 -quality 75 ./photos/med/$1
+fi

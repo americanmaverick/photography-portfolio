@@ -1,0 +1,13 @@
+body {
+  text-align: center;
+}
+
+.spacing {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.spacing-double {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
