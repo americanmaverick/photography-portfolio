@@ -1,32 +1,29 @@
-function Application() {
-  var application;
-  application = this;
-  application.imageLoader = new Image();
-  application.imageLoader.onload = function() {
-    closeupImage.src = this.src;
-  };
-  
+function main() {
   window.addEventListener('click', function(e) {
-    application.handleCloseup(e);
+    handleCloseup(e);
   });
   
   backToGallery.addEventListener('click', function() {
     gallery.classList.toggle('hidden', false);
     closeup.classList.toggle('hidden', true);
-  })
+  });
 }
 
-Application.prototype.handleCloseup = function(e) {
-  var photo, originalSource;
+function handleCloseup(e) {
+  var photo, preloader, originalSource;
   photo = e.target.dataset.photo;
   
   if (photo) {
-    originalSource = './photos/orig/'+photo;
-    
-    this.imageLoader.src = originalSource;
     closeupImage.src = './photos/med/'+photo;
+    preloader = new Image();
+    preloader.onload = function() {
+      closeupImage.src = this.src;
+    };
+    preloader.src = './photos/orig/'+photo;
     closeupLink.href = './photos/orig/'+photo;
     gallery.classList.toggle('hidden', true);
     closeup.classList.toggle('hidden', false);
   }
-};
+}
+
+main();

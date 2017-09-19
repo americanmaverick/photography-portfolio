@@ -3,7 +3,7 @@
 require 'slim'
 require 'pathname'
 
-photos = Dir.glob('./photos/orig/*.JPG').map do |path|
+photos = Dir.glob('./site/photos/orig/*.JPG').map do |path|
   Pathname(path).basename
 end
 
