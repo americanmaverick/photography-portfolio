@@ -8,5 +8,5 @@ photos = Dir.glob('./photos/orig/*.JPG').map do |path|
 end
 
 result = Slim::Template.new("index.slim").render(nil, photos: photos)
-Pathname('index.html').write(result)
+Pathname('site/index.html').write(result)
 
