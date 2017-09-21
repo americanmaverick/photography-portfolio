@@ -1,3 +1,14 @@
 #!/usr/bin/env bash
 
+set -e
+
+{ watch -n1 build > /dev/null 2>&1; } &
+build_process=$!
+
+function kill_process {
+  kill -9 $build_process
+}
+
 ruby -run -e httpd ./site
+
+trap kill_process EXIT

@@ -1,14 +1,23 @@
 function main() {
-  window.addEventListener('click', displayCloseup);
-  backToGallery.addEventListener('click', hideCloseup);
+  on('hashchange', window, handlePageState);
+  handlePageState();
 }
 
 main.currentCloseup = undefined;
 
-function displayCloseup(e) {
+function handlePageState() {
   var photo;
+  photo = window.location.hash.substr(1);
   
-  main.currentCloseup = photo = e.target.dataset.photo;
+  if (photo === '') {
+    hideCloseup()
+  } else {
+    displayCloseup(photo)
+  }
+}
+
+function displayCloseup(photo) {
+  main.currentCloseup = photo;
   
   if (photo) {
     closeupImage.src = size('med', photo);
@@ -38,4 +47,9 @@ function preload(photo) {
 function size(sizeName, photo) {
   return './photos/'+sizeName+'/'+photo;
 }
+
+function on(eventName, target, callback) {
+  target.addEventListener(eventName, callback);
+}
+
 main();
