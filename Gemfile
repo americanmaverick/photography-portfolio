@@ -1,3 +1,3 @@
 source "https://rubygems.org"
 
-gem "slim"
+gem "stubborn", github: 'americanmaverick/stubborn'

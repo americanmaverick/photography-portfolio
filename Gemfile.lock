@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/americanmaverick/stubborn.git
+  revision: 89beb23807157072996e3b6011708855854e54a7
+  specs:
+    stubborn (0.1.0)
+      slim
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -11,7 +18,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  slim
+  stubborn!
 
 BUNDLED WITH
    1.13.1
