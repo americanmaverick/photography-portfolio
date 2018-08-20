@@ -2,7 +2,7 @@ html
   head
     title Benjamin Bergstein | Photography Portfolio
     link type='text/css' rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
-    link type='text/css' rel='stylesheet' href='style.css'
+    link type='text/css' rel='stylesheet' href='style.css?version=#{cache_buster}'
     meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
 
   body
@@ -13,19 +13,23 @@ html
           p.lead By Benjamin Bergstein
 
         .row
-          - photos.each do |photo|
+          - photos.each_with_index do |photo, index|
             .col-med-4.col-lg-3
               figure.spacing
-                a href="##{photo}"
+                a.image-tile href="##{photo}"
                   img src="./photos/med/#{photo}" style="width: 100%; height: auto;"
 
       #closeup.hidden
         .row
-          .col-lg-12.spacing
+          .col-lg-6.spacing.text-left
             small
               a href="#"
-                ' &larr; Back to Gallery
+                ' &larr; Back to Gallery (Esc)
 
+          .col-lg-6.pull-right.spacing.text-right
+            small Press arrow right key to view next photo &nbsp; &rarr;
+
+        .row
           .col-lg-12
             a#closeupLink target="_blank"
               figure
@@ -34,6 +38,6 @@ html
       .row
         .col-lg-12
           hr
-          .spacing &copy; Copyright 2017 Benjamin Bergstein
+          small &copy; Copyright 2017 Benjamin Bergstein
 
-    script src='javascript/application.js'
+    script src='javascript/application.js?version=#{cache_buster}'
